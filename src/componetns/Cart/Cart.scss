@@ -1,4 +1,125 @@
+@import '../../styles/settings.scss';
+
 .cart {
     border: 1px solid red;
     flex: 0 0 30%;
+    &__main {
+        background-color: $color-rose-50;
+        margin: 10px;
+        padding: 20px;
+        border-radius: 7px;
+    }
+    &__title {
+        color: $color-red;
+    }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+    .cart__empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        &-text {
+            color: $color-rose-500;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+    }
+
+.cart__orders {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 25px;
+}
+
+.cart__order {
+    display: flex;
+    justify-content: space-between;
+    margin-top:10px;
+    border-bottom: 1px solid $color-rose-300;
+    padding-bottom: 20px;
+}
+.cart__details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &-name {
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+      color: $color-rose-900;
+      font-size: 18px;
+    }
+}
+.cart__price {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    &-amount {
+      color: $color-red;
+      font-weight: 500;
+    }
+    &-single {
+        color: $color-rose-500;
+    }
+    &-total {
+        color: $color-rose-500;
+        font-weight: 500;
+    }
+}
+
+.cart__delete {
+   border: none;
+   color: $color-rose-500;
+   align-self: center;
+   &-img {
+    border: 1px solid $color-rose-300;
+    padding: 5px;
+    border-radius: 50%;
+   }
+}
+
+.cart__total {
+display: flex;
+justify-content: space-between;
+align-items: center;
+&-text {
+    font-size: 20px;
+    color: $color-rose-500;
+    font-weight: 500;
+}
+&-price {
+    font-size: 26px;
+    color: $color-rose-900;
+    font-weight: 700;
+}
+}
+.cart__neutral {
+    display: flex;
+    gap: 10px;
+    color: $color-rose-500;
+    background-color: $color-rose-100;
+    padding: 10px;
+    justify-content: center;
+    border-radius: 5px;
+    span {
+        color: $color-rose-900;
+        font-weight: 500;
+    }
+}
+.cart__button {
+    border: none;
+    padding: 15px;
+    background-color: $color-red;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    cursor: pointer;
 }

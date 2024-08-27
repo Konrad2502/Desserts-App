@@ -3,4 +3,18 @@
     flex-direction: column;
     flex: 0 0 70%;
     border: 1px solid black;
+    h1 {
+    padding: 20px;
+    margin-left: 40px;
+    }
+}
+.shopping-card__list {
+    display: flex;
+    flex-wrap: wrap;
+    // gap: 20px;
+    // padding: 20px;
+    justify-content: space-between;
+   
+   
+    
 }
