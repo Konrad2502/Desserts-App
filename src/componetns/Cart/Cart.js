@@ -2,7 +2,12 @@ import React from 'react'
 import './Cart.scss';
 
 function Cart({ cartItems,removeFromCart }) {
-   
+
+    
+      const calculateTotalPrice = (items) => {
+        return items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+      };
+
     return (
       <div className='cart'>
         <div className='cart__main'>
@@ -20,9 +25,9 @@ function Cart({ cartItems,removeFromCart }) {
                     <div className='cart__details'>
                       <p className='cart__details-name'>{item.name}</p>
                       <div className='cart__price'>
-                        <span className='cart__price-amount'>1x</span>
+                        <span className='cart__price-amount'>{item.quantity}x</span>
                         <span className='cart__price-single'>@ ${item.price.toFixed(2)}</span> 
-                        <span className='cart__price-total'>${item.price.toFixed(2)}</span>
+                        <span className='cart__price-total'>${(item.price * item.quantity).toFixed(2)}</span>
                       </div>
                     </div>
                     <button className='cart__delete' onClick={()=> removeFromCart(item.id)}>
@@ -32,7 +37,7 @@ function Cart({ cartItems,removeFromCart }) {
                 ))}
                 <div className='cart__total'>
                   <p className='cart__total-text'>Total</p>
-                  <span className='cart__total-price'>$46.50</span>
+                  <span className='cart__total-price'>${calculateTotalPrice(cartItems)}</span>
                 </div>
                 <div className='cart__neutral'>
                   <img className='cart__neutral-img' alt='neutral' src='./assets/images/icon-carbon-neutral.svg' /> 

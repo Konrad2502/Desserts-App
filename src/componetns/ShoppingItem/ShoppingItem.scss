@@ -8,8 +8,6 @@
     align-items: center;
     position: relative;
     margin-bottom: 50px;
-    &-picture {
-        text-align: center;
         img {
             background-size: cover;
             width: 250px;
@@ -17,8 +15,9 @@
             border-radius: 10px;
             box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.1);
         }
-    }
-       
+        .border {
+            border: 2px solid $color-red;
+        }
     &-btn {
         width: 160px;
         height: 40px;
@@ -44,7 +43,29 @@
             font-weight: 600;
             font-size: 14px;
         }
+        &--quantity {
+            width: 160px;
+            height: 40px;
+            background-color: $color-red ;
+            border: 1px solid  rgba(0,0,0,0.3); 
+            bottom: 25%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            span {
+                color: white;
+            }
+            img {
+                border: 1px solid white;
+                border-radius: 50%;
+                height: 15px;
+                width: 15px;
+                padding: 2px;
+            }
+
+        }
     }
+    
 }
 .shopping-card__item-description {
     margin-top: 40px;

@@ -58,14 +58,15 @@
 }
 .cart__price {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 15px;
     &-amount {
       color: $color-red;
       font-weight: 500;
     }
     &-single {
         color: $color-rose-500;
+        display: flex;
+        flex-wrap: nowrap;
     }
     &-total {
         color: $color-rose-500;
@@ -77,6 +78,7 @@
    border: none;
    color: $color-rose-500;
    align-self: center;
+   cursor: pointer;
    &-img {
     border: 1px solid $color-rose-300;
     padding: 5px;

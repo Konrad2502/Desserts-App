@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ShoppingCard.scss';
 import ShoppingItem from '../ShoppingItem/ShoppingItem';
 
-function ShoppingCard({addToCart}) {
+function ShoppingCard({addToCart, cartItems,removeFromCart}) {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ function ShoppingCard({addToCart}) {
   </div>
   <div className="shopping-card__list">
     {items.map((item) => (
-        <ShoppingItem key={item.id} item={item} addToCart={addToCart}/>
+        <ShoppingItem key={item.id} item={item} addToCart={addToCart} cartItems={cartItems} removeFromCart={removeFromCart}/>
     ))}
 
   </div>
