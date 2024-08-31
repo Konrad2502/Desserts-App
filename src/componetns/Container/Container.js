@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import './Container';
 import ShoppingCard from '../ShoppingCard/ShoppingCard';
 import Cart from '../Cart/Cart';
+import PopupCart from '../PopupCart/PopupCart';
 
 function Container() {
 
   const [cartItems, setCartItems] = useState([]);
+  const [isVisible, setIsVisble] = useState(false);
   
   const addToCart = (item) => {
     setCartItems((prevItems) => {
@@ -41,11 +43,19 @@ function Container() {
       }
     });
   };
+
+  const resetCart = () => {
+    setCartItems([])
+    setIsVisble(false);
+  }
   return (
+    <>
     <div className='container'>,
         <ShoppingCard addToCart={addToCart} removeFromCart={removeFromCart} cartItems={cartItems}/>
-        <Cart cartItems={cartItems} removeFromCart={removeFromCart}/>
+        <Cart cartItems={cartItems} removeFromCart={removeFromCart} onConfirmOrder={() => setIsVisble(true)}/>
     </div>
+    <PopupCart cartItems={cartItems} resetCart={resetCart} isVisible={isVisible}/>
+    </>
   )
 }
 

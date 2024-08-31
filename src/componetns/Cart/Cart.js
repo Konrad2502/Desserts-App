@@ -1,7 +1,7 @@
 import React from 'react'
 import './Cart.scss';
 
-function Cart({ cartItems,removeFromCart }) {
+function Cart({ cartItems,removeFromCart, onConfirmOrder }) {
 
     
       const calculateTotalPrice = (items) => {
@@ -43,7 +43,7 @@ function Cart({ cartItems,removeFromCart }) {
                   <img className='cart__neutral-img' alt='neutral' src='./assets/images/icon-carbon-neutral.svg' /> 
                   <p className='cart__neutral-text'>This is <span>carbon neutral</span> delivery</p>
                 </div>
-                <button className='cart__button'>Confirm order</button>
+                <button className='cart__button' onClick={onConfirmOrder}>Confirm order</button>
               </div>
             )}
           </div>
