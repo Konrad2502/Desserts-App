@@ -1,4 +1,39 @@
+@import '../../styles/settings.scss';
+
+
 .header {
+    position: relative;
     text-align: center;
-    padding: 30px;
-}
+    width: 100%;
+    height: 300px;
+    margin-bottom: 50px ;
+    overflow: hidden;
+  
+    .header__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  
+    .header__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3); // Przyciemnienie za pomocą RGBA
+      z-index: 2;
+    }
+  
+    .header__title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $color-rose-100;
+      z-index: 3;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+  }

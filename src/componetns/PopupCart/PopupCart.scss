@@ -10,7 +10,8 @@
     z-index: 1000; 
 }
 .popUp {
-    width: 550px;
+    width: 80vw;
+    max-width: 550px;
     background-color: $color-rose-50;
     margin: 100px auto;
     flex-direction: column;
@@ -136,4 +137,12 @@
     border-radius: 20px;
     cursor: pointer;
 
+}
+
+@media (max-width: 450px) {
+    .popUp__item {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
 }

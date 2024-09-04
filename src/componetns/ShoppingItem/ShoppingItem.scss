@@ -76,17 +76,26 @@
 }
 .shopping-card__item-description {
     margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    
 }
 .shopping-card__item-category {
     margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    
     p {
-        margin-right: 200px;
+        
         color: $color-rose-500;
         font-family: "Dancing Script";
         font-size: 19px;
+        
     }
 }
 .shopping-card__item-name {
+    display: flex;
+    justify-content: center;
     p {
         font-family: "Roboto", sans-serif;
         font-size: 20px;
@@ -97,8 +106,8 @@
 .shopping-card__item-price {
     p {
         font-size: 20px;
-        margin-right: 200px;
         font-weight: 500;
         color: $color-red;
+        text-align: center;
     }
 }

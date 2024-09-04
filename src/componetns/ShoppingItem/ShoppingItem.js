@@ -47,10 +47,11 @@ function ShoppingItem({ item, addToCart, cartItems, removeFromCart }) {
           <div className="shopping-card__item-name">
             <p>{item.name}</p>
           </div>
+          <div className="shopping-card__item-price">
+            <p>${item.price.toFixed(2)}</p>
+          </div>
         </div>
-        <div className="shopping-card__item-price">
-          <p>${item.price.toFixed(2)}</p>
-        </div>
+        
       </div>
     );
   }
