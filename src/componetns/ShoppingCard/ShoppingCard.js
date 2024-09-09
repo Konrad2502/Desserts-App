@@ -28,28 +28,27 @@ function ShoppingCard({addToCart, cartItems,removeFromCart, activeIndex, setActi
     }, [])
     
     useEffect(() => {
+      const handleKeyDown = (e) => {
+        if (items.length === 0) return;
+    
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          setActiveIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
+        } else if (e.key === 'Enter') {
+          addToCart(items[activeIndex]);
+        } else if (e.key === 'Tab') {
+          e.preventDefault();
+          document.querySelector('.cart__button').focus();
+        }
+      };
+    
       window.addEventListener('keydown', handleKeyDown);
-  
+    
       return () => {
         window.removeEventListener('keydown', handleKeyDown);
       };
-    }, [items, activeIndex]);
-
-    const handleKeyDown = (e) => {
-      if (items.length === 0) return;
-  
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
-      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-        setActiveIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
-      } else if (e.key === 'Enter') {
-        addToCart(items[activeIndex]);
-      } else if (e.key === 'Tab') {
-        e.preventDefault();  
-        document.querySelector('.cart__button').focus();
-      } 
-    
-    };
+    }, [items, activeIndex, addToCart, setActiveIndex])
   
   return (
 <div className="shopping-card">

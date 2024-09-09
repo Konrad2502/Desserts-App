@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect,useCallback } from 'react';
 
 import './PopupCart.scss';
 
@@ -9,24 +9,28 @@ function PopupCart({ cartItems, resetCart, isVisible,setActiveIndex }) {
     // Obliczanie całkowitej ceny zamówienia
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
 
-    const handleKeyDown = (e) => {
-      if (e.key === ' ' && isVisible) {
-        resetCart();
-        setActiveIndex(0);
-        e.preventDefault();
-        document.querySelector('.shopping-card__item').focus();
-      }
-    }
+     // Memoizacja funkcji resetCart
+     const memoizedResetCart = useCallback(() => {
+      resetCart();
+      setActiveIndex(0);
+  }, [resetCart, setActiveIndex]);
 
-    useEffect(() => {
-      if (isVisible) {
-        window.addEventListener('keydown', handleKeyDown);
-      }
-  
-      return () => {
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    }, [isVisible, resetCart]);
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === ' ' && isVisible) {
+      memoizedResetCart();
+      e.preventDefault();
+      document.querySelector('.shopping-card__item').focus();
+    }
+  }, [isVisible, memoizedResetCart]);
+
+  useEffect(() => {
+    if (isVisible) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isVisible, handleKeyDown]);
     return (
         <>
 {isVisible && <div className="overlay"></div>}
