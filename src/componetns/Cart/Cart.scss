@@ -124,5 +124,8 @@ align-items: center;
     letter-spacing: 1px;
     border-radius: 20px;
     cursor: pointer;
+    &--active {
+        border: 2px solid $color-rose-500;
+    }
 }
 

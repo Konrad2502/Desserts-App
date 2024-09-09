@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './ShoppingCard.scss';
 import ShoppingItem from '../ShoppingItem/ShoppingItem';
 
-function ShoppingCard({addToCart, cartItems,removeFromCart}) {
+function ShoppingCard({addToCart, cartItems,removeFromCart, activeIndex, setActiveIndex}) {
     const [items, setItems] = useState([]);
-    const [loading , setLoading] = useState(true)
-
+    const [loading , setLoading] = useState(true);
+  
+    console.log(items)
+  
     useEffect(() => {
 
         setLoading(true);
@@ -24,8 +26,31 @@ function ShoppingCard({addToCart, cartItems,removeFromCart}) {
        
 
     }, [])
+    
+    useEffect(() => {
+      window.addEventListener('keydown', handleKeyDown);
+  
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }, [items, activeIndex]);
 
-
+    const handleKeyDown = (e) => {
+      if (items.length === 0) return;
+  
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        setActiveIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
+      } else if (e.key === 'Enter') {
+        addToCart(items[activeIndex]);
+      } else if (e.key === 'Tab') {
+        e.preventDefault();  
+        document.querySelector('.cart__button').focus();
+      } 
+    
+    };
+  
   return (
 <div className="shopping-card">
   <div className="shopping-card__header">
@@ -38,8 +63,15 @@ function ShoppingCard({addToCart, cartItems,removeFromCart}) {
   </div>
   ) : (
     <div className="shopping-card__list">
-        {items.map((item) => (
-            <ShoppingItem key={item.id} item={item} addToCart={addToCart} cartItems={cartItems} removeFromCart={removeFromCart}/>
+        {items.map((item,index) => (
+            <ShoppingItem 
+            key={item.id} 
+            item={item} 
+            addToCart={addToCart} 
+            cartItems={cartItems} 
+            removeFromCart={removeFromCart}
+            isActive={index === activeIndex}
+            />
         ))}
 
     </div>

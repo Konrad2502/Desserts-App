@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import './ShoppingItem.scss';
 
-function ShoppingItem({ item, addToCart, cartItems, removeFromCart }) {
+function ShoppingItem({ item, addToCart, cartItems, removeFromCart,isActive }) {
     
     const cartItem = cartItems.find(cartItem => cartItem.id === item.id);
     const [isShown, setIsShown] = useState(false);
-
+   
+    if (cartItem) {
+      console.log(cartItem);
+  }
     useEffect(() => {
         setTimeout(() => {
             setIsShown(true)
         },100)
     })
+
+   
   
 
     return (
-      <div className={`shopping-card__item ${isShown ? 'visible': ''}`}>
+      <div className={`shopping-card__item ${isShown ? 'visible': ''}  ${isActive ? 'focused' : ''} `}
+      >
         <div className="shopping-card__item-picture">
           <img
-            className={cartItem ? 'border' : 'shopping-card__item-image'}      
+            className={`shopping-card__item-image ${cartItem ? 'border' : ''} ${isActive ? 'focused' : ''}`}   
             alt={item.name}
             src={item.image.desktop} 
           />

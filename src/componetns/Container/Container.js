@@ -8,8 +8,14 @@ function Container() {
 
   const [cartItems, setCartItems] = useState([]);
   const [isVisible, setIsVisble] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  console.log(cartItems)
   
   const addToCart = (item) => {
+    if (!item || !item.id) {
+      console.error("Item is undefined or missing ID", item);
+      return;
+    }
     setCartItems((prevItems) => {
       const existingItem = prevItems.find(cartItem => cartItem.id === item.id);
   
@@ -44,6 +50,10 @@ function Container() {
     });
   };
 
+  const onConfirmOrder = () => {
+    setIsVisble(true); 
+  }
+
   const resetCart = () => {
     setCartItems([])
     setIsVisble(false);
@@ -51,10 +61,10 @@ function Container() {
   return (
     <>
     <div className='container'>,
-        <ShoppingCard addToCart={addToCart} removeFromCart={removeFromCart} cartItems={cartItems}/>
-        <Cart cartItems={cartItems} removeFromCart={removeFromCart} onConfirmOrder={() => setIsVisble(true)}/>
+        <ShoppingCard addToCart={addToCart} removeFromCart={removeFromCart} cartItems={cartItems} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
+        <Cart cartItems={cartItems} removeFromCart={removeFromCart} onConfirmOrder={onConfirmOrder}/>
     </div>
-    <PopupCart cartItems={cartItems} resetCart={resetCart} isVisible={isVisible}/>
+    <PopupCart cartItems={cartItems} resetCart={resetCart} isVisible={isVisible} setActiveIndex={setActiveIndex}/>
     </>
   )
 }

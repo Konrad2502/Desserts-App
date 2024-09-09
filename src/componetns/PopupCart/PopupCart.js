@@ -1,12 +1,32 @@
+import { useEffect } from 'react';
+
 import './PopupCart.scss';
 
 import React from 'react'
 
-function PopupCart({ cartItems, resetCart, isVisible }) {
+function PopupCart({ cartItems, resetCart, isVisible,setActiveIndex }) {
 
     // Obliczanie całkowitej ceny zamówienia
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+
+    const handleKeyDown = (e) => {
+      if (e.key === ' ' && isVisible) {
+        resetCart();
+        setActiveIndex(0);
+        e.preventDefault();
+        document.querySelector('.shopping-card__item').focus();
+      }
+    }
+
+    useEffect(() => {
+      if (isVisible) {
+        window.addEventListener('keydown', handleKeyDown);
+      }
   
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }, [isVisible, resetCart]);
     return (
         <>
 {isVisible && <div className="overlay"></div>}
@@ -43,7 +63,7 @@ function PopupCart({ cartItems, resetCart, isVisible }) {
             ${totalPrice}
           </span>
         </div>
-        <button className='popUp__button' onClick={resetCart}>Start New Order</button>
+        <button className='popUp__button' onClick={resetCart} onKeyDown={handleKeyDown} >Start New Order</button>
       </div>
       </>
     );

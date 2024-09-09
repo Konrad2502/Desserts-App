@@ -8,6 +8,12 @@ function Cart({ cartItems,removeFromCart, onConfirmOrder }) {
         return items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
       };
 
+      const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+          onConfirmOrder();  // Zatwierdzenie zamówienia po naciśnięciu Enter
+        }
+      };
+
     return (
       <div className='cart'>
         <div className='cart__main'>
@@ -43,7 +49,12 @@ function Cart({ cartItems,removeFromCart, onConfirmOrder }) {
                   <img className='cart__neutral-img' alt='neutral' src='./assets/images/icon-carbon-neutral.svg' /> 
                   <p className='cart__neutral-text'>This is <span>carbon neutral</span> delivery</p>
                 </div>
-                <button className='cart__button' onClick={onConfirmOrder}>Confirm order</button>
+                <button 
+                className='cart__button' 
+                onClick={onConfirmOrder}
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                >Confirm order</button>
               </div>
             )}
           </div>
