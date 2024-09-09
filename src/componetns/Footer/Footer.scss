@@ -1,0 +1,41 @@
+@import '../../styles/settings.scss';
+
+.footer {
+    width: 100%;
+    background-color: $color-rose-300;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+    &__icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.footer__items {
+    display: flex;
+    gap: 20px;
+    font-size: 25px;
+   
+    .icon {
+        color: $color-rose-50;
+        transition: transform 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+        padding: 10px;
+        background-color: $color-red;
+        border-radius: 50%;
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
+}
+.footer__text {
+    color: $color-rose-50;
+    font-size: 18px;
+    text-align: center;
+    background-color: $color-rose-500;
+    padding: 10px 0;
+}
+
