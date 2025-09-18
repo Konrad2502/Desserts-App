@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+🍰 Dessert App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Dessert Web Application built with React and SCSS (BEM methodology).
+The app allows users to browse desserts, add them to a cart using the keyboard or mouse, manage their cart contents, and confirm their order. After confirmation, a popup window is displayed with the full order summary and total price.
+The project simulates data loading with a loader component and uses a local JSON file as the data source.
 
-## Available Scripts
+🌍 Live Demo
 
-In the project directory, you can run:
+Check out the live version of the app here: https://lustrous-kangaroo-3d4281.netlify.app/
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📸 Preview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Here’s a preview of the Dessert App: 
+![Dessert-App Preview](/dessert-app/assets/dessert-app.png)
 
-### `npm test`
+📌 Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✅ Browse Desserts – view a list of available desserts dynamically loaded from a JSON file.
 
-### `npm run build`
+✅ Simulated Loading – initial loading animation while fetching data.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+✅ Keyboard Navigation – navigate through desserts using arrow keys and add to cart using Enter.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+✅ Add to Cart – add desserts to the shopping cart via mouse or keyboard.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+✅ Remove Items – decrease quantity or remove desserts entirely from the cart.
 
-### `npm run eject`
+✅ Cart Management – view, edit, and confirm cart items.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+✅ Popup Order Confirmation – display a confirmation modal with the final order and total price.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✅ Responsive Layout – works smoothly on desktop, tablet, and mobile devices.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+✅ SCSS with BEM – structured and maintainable styling.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🛠️ Tech Stack
 
-## Learn More
+React – UI library for building components.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+SCSS – styling with BEM methodology for clean, scalable CSS.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+JavaScript (ES6+) – app logic and interactivity.
 
-### Code Splitting
+JSON Data – simulating an API using local JSON data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Netlify – hosting and deployment platform.
 
-### Analyzing the Bundle Size
+🚀 Installation & Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Clone the repository:
 
-### Making a Progressive Web App
+git clone https://github.com/your-username/Dessert-App.git
+cd Dessert-App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+Install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+npm install
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Start the development server:
 
-### `npm run build` fails to minify
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Open http://localhost:3000
+ in your browser to view the project.
+
+📜 Available Scripts
+
+npm start – Runs the app in development mode.
+
+npm test – Launches the test runner.
+
+npm run build – Builds the app for production.
+
+npm run eject – Removes Create React App configuration for full customization.
+
+📚 What I Learned
+
+This project helped me improve my skills in:
+
+🎯 React State Management – handling cart items, popup states, and navigation index.
+
+🎯 Keyboard Accessibility – adding support for keyboard navigation and actions like adding to cart or confirming orders.
+
+🎯 Loading Simulation – using a loader to create a smooth user experience while fetching data.
+
+🎯 SCSS with BEM – writing clean, scalable, and maintainable styles.
+
+🎯 Responsive Design – ensuring usability across multiple screen sizes.
+
+🎯 Popup Management – handling modals dynamically with visibility toggles and resets.
+
+🎯 Dynamic Data Handling – loading desserts from JSON and simulating API behavior.
+
+📬 Contact
+
+If you have any questions or suggestions, feel free to reach out:
+
+GitHub: Konrad2502
+
+Email: konrad.litak@gmail.com
