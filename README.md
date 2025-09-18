@@ -12,7 +12,7 @@ Check out the live version of the app here: https://lustrous-kangaroo-3d4281.net
 📸 Preview
 
 Here’s a preview of the Dessert App: 
-![Dessert-App Preview](/dessert-app/assets/dessert-app.png)
+![Dessert-App Preview](public/assets/images/dessert-app.png)
 
 📌 Features
 
